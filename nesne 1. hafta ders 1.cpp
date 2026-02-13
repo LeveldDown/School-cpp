@@ -8,8 +8,8 @@ int main(){
     cin >> c;
 }
 */
-/*Kullanıcıdan alınan bir tam sayının pozitif, negatif veya sıfır olma durumunu
-if-else blokları kullanarak ekrana yazdıran C++ programını yazınız. */
+/*SORU 1: Kullanıcıdan alınan bir tam sayının pozitif, negatif veya sıfır olma durumunu
+          if-else blokları kullanarak ekrana yazdıran C++ programını yazınız. */
 /*
 #include <iostream>
 using namespace std;
@@ -31,7 +31,8 @@ int main(){
 }
 */
 
-//2. soru
+/*SORU 2: Kullanıcıdan alınan iki tam sayıdan en az birinin 10’dan büyük olup olmadığını || 
+          mantıksal operatörünü kullanarak kontrol eden C++ programını yazınız.*/
 /*#include <iostream>
 using namespace std;
 
@@ -49,7 +50,8 @@ int main(){
 }
 */
 
-//3. soru
+/*SORU 3: Kullanıcıdan alınan bir tam sayıyı önce 1 artırıp (++), 
+          daha sonra bu değerin 2 katını ekrana yazdıran C++ programını yazınız.*/
 /*#include <iostream>
 using namespace std;
 
