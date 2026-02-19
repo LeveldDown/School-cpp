@@ -47,7 +47,20 @@ int main(){
     cin>>x;
     
     bool aralik = (x>=10 && x<=50);
+    #include <iostream>
+using namespace std;
+
+int main(){
+    cout<<"lutfen pozitif bir tam sayi giriniz: "<<endl;
+    int x;
+    cin>>x;
     
+    for(int i=1; i<=x; i++){
+        if(i%2==0){
+            cout<<i<<" "<<endl;
+        }
+    }
+}
     if(aralik == 1){
         cout<<"aralik icinde"<<endl;
     }
@@ -87,7 +100,7 @@ int main(){
     
     for(int i=1; i<=x; i++){
         if(i%2==0){
-            cout<<i<<" "<<endl;
+            cout<<i<<" ";
         }
     }
 }
