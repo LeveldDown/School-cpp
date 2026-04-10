@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+class SinemaBileti{
+   private:
+    
+    string filmAdi;
+    int salonNo;
+    int koltukNo;
+    double fiyat;
+    int adet;
+    
+   public:
+    SinemaBileti(){
+        cout<<"Sinema Bileti Oluşturuldu!!"<<endl;
+        filmAdi="";
+        salonNo=0;
+        koltukNo=0;
+        fiyat=0;
+        adet=0;
+    }
+    ~SinemaBileti(){}
+    
+    string getFilmAdi(){
+        return filmAdi;
+    }
+    int getSalonNo(){
+        return salonNo;
+    }
+    int getKoltukNo(){
+        return koltukNo;
+    }
+    double getFiyat(){
+        return fiyat;
+    }
+    int getAdet(){
+        return adet;
+    }
+    
+    void setBilgi(string filmAdi, int salonNo, int koltukNo, double fiyat, int adet){
+        this->filmAdi=filmAdi;
+        this->salonNo=salonNo;
+        this->koltukNo=koltukNo;
+        this->fiyat=fiyat;
+        this->adet=adet;
+    }
+    
+    void bilgiGoster(){
+        double toplam = fiyat*adet;
+        
+        cout<<"Film Adi: "<<filmAdi<<endl;
+        cout<<"Salon No: "<<salonNo<<endl;
+        cout<<"Koltuk No: "<<koltukNo<<endl;
+        cout<<"Fiyat: "<<fiyat<<"TL"<<endl;
+        cout<<"Adet: "<<adet<<endl;
+        if(adet>=2){
+            cout<<"%10 indirim uygulandı."<<endl;
+            toplam = toplam*0.9;
+        }
+        cout<<"Toplam fiyat:"<<toplam<<"TL"<<endl;
+    }
+    
+};
+
+int main(){
+    SinemaBileti bilet1;
+    bilet1.setBilgi("Dune",24,34,300,1);
+    bilet1.bilgiGoster();
+    
+    SinemaBileti bilet2;
+    bilet2.setBilgi("Yüzüklerin Efendisi",15,23,300,5);
+    bilet2.bilgiGoster();
+}
