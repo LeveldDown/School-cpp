@@ -1,0 +1,209 @@
+Soru 1:
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Insan {
+protected: 
+    string ad;
+    int yas;
+    int id;
+
+public: 
+    Insan(string a, int y, int i) {
+        ad = a;
+        yas = y;
+        id = i;
+    }
+
+    void yazdir() {
+        cout << "Ad: " << ad << "\nYas: " << yas << "\nID: " << id << endl;
+    }
+};
+
+class Ogrenci : public Insan {
+private: 
+    string bolum;
+
+public:
+    Ogrenci(string a, int y, int i, string b) : Insan(a, y, i) {
+        bolum = b;
+    }
+
+    void yazdir() {
+        cout << "--- Ogrenci Bilgileri ---" << endl;
+        Insan::yazdir();
+        cout << "Bolum: " << bolum << endl;
+    }
+
+    void dersKayit(string ders) {
+        cout << "-> " << ad << " adli ogrenci " << ders << " dersine kayit oldu." << endl;
+    }
+};
+
+class Calisan : public Insan {
+private:
+    double maas;
+
+public:
+    Calisan(string a, int y, int i, double m) : Insan(a, y, i) {
+        maas = m;
+    }
+
+    void yazdir() {
+        cout << "--- Calisan Bilgileri ---" << endl;
+        Insan::yazdir();
+        cout << "Maas: " << maas << " TL" << endl;
+    }
+
+    void zamHesapla(double oran) {
+        maas += maas * (oran / 100);
+        cout << "-> " << ad << " adli calisana %" << oran << " zam yapildi. Yeni maas: " << maas << " TL" << endl;
+    }
+};
+
+int main() {
+    Ogrenci ogr("Süleyman", 21, 1045, "Bilgisayar Muhendisligi");
+    ogr.yazdir();
+    ogr.dersKayit("Nesne Yonelimli Programlama");
+
+    cout << "\n=================================\n\n";
+
+    Calisan cls("Ahmet", 35, 2088, 35000.0);
+    cls.yazdir();
+    cls.zamHesapla(15.0);
+
+    return 0;
+
+
+}
+
+soru 2:
+
+#include <iostream>
+
+using namespace std;
+
+class Bina {
+protected:
+    int katSayisi;
+    int metrekare;
+    bool bahceVarMi;
+    bool otoparkVarMi;
+
+public:
+    Bina() {
+        katSayisi = 0;
+        metrekare = 0;
+        bahceVarMi = false;
+        otoparkVarMi = false;
+    }
+
+    void setKatSayisi(int k) { katSayisi = k; }
+    int getKatSayisi() { return katSayisi; }
+
+    void setMetrekare(int m) { metrekare = m; }
+    int getMetrekare() { return metrekare; }
+
+    void setBahceVarMi(bool b) { bahceVarMi = b; }
+    bool getBahceVarMi() { return bahceVarMi; }
+
+    void setOtoparkVarMi(bool o) { otoparkVarMi = o; }
+    bool getOtoparkVarMi() { return otoparkVarMi; }
+
+    void bilgiYazdir() {
+        cout << "Kat Sayisi: " << katSayisi << "\n"
+             << "Metrekare: " << metrekare << "\n"
+             << "Bahce: " << (bahceVarMi ? "Var" : "Yok") << "\n"
+             << "Otopark: " << (otoparkVarMi ? "Var" : "Yok") << "\n";
+    }
+};
+
+class Apartman : public Bina {
+private:
+    int daireSayisi;
+
+public:
+    Apartman() : Bina() {
+        daireSayisi = 0;
+    }
+
+    void setDaireSayisi(int d) { daireSayisi = d; }
+    int getDaireSayisi() { return daireSayisi; }
+
+    void bilgiYazdir() {
+        cout << "--- Apartman Bilgileri ---\n";
+        Bina::bilgiYazdir();
+        cout << "Daire Sayisi: " << daireSayisi << "\n\n";
+    }
+};
+
+class Okul : public Bina {
+private:
+    int sinifSayisi;
+
+public:
+    Okul() : Bina() {
+        sinifSayisi = 0;
+    }
+
+    void setSinifSayisi(int s) { sinifSayisi = s; }
+    int getSinifSayisi() { return sinifSayisi; }
+
+    void bilgiYazdir() {
+        cout << "--- Okul Bilgileri ---\n";
+        Bina::bilgiYazdir();
+        cout << "Sinif Sayisi: " << sinifSayisi << "\n\n";
+    }
+};
+
+class Hastane : public Bina {
+private:
+    int yatakSayisi;
+
+public:
+    Hastane() : Bina() {
+        yatakSayisi = 0;
+    }
+
+    void setYatakSayisi(int y) { yatakSayisi = y; }
+    int getYatakSayisi() { return yatakSayisi; }
+
+    void bilgiYazdir() {
+        cout << "--- Hastane Bilgileri ---\n";
+        Bina::bilgiYazdir();
+        cout << "Yatak Sayisi: " << yatakSayisi << "\n\n";
+    }
+};
+
+int main() {
+    Apartman apt;
+    apt.setKatSayisi(5);
+    apt.setMetrekare(1200);
+    apt.setBahceVarMi(true);
+    apt.setOtoparkVarMi(true);
+    apt.setDaireSayisi(10);
+
+    Okul okl;
+    okl.setKatSayisi(4);
+    okl.setMetrekare(5000);
+    okl.setBahceVarMi(true);
+    okl.setOtoparkVarMi(false);
+    okl.setSinifSayisi(40);
+
+    Hastane hst;
+    hst.setKatSayisi(8);
+    hst.setMetrekare(15000);
+    hst.setBahceVarMi(false);
+    hst.setOtoparkVarMi(true);
+    hst.setYatakSayisi(300);
+
+    apt.bilgiYazdir();
+    okl.bilgiYazdir();
+    hst.bilgiYazdir();
+
+    return 0;
+}
+
