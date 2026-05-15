@@ -1,3 +1,60 @@
+/*SORU KISMI:
+mobilya stok sorusu saf sanal
+
+Bir mobilya üretim firması için dijital stok yönetim sisteminin çekirdek mimarisini tasarlamanız
+
+istenmektedir. Sistem, farklı mobilya türlerini ortak bir çatı altında yönetmeli ve her mobilyanın kendine
+
+has özelliklerine göre dinamik olarak işlem yapabilmelidir.
+
+Sizden istenen teknik gereksinimler şunlardır:
+
+1. Temel Sınıf Tasarımı (Interface/Abstract Class)
+
+Mobilya adında bir soyut temel sınıf (abstract class) oluşturun. Bu sınıf şu özelliklere sahip olmalıdır:
+
+● Üye Değişkenler: Her mobilyanın bir ad (string), malzeme (string) ve tabanFiyat (double) bilgisi
+
+olmalıdır. (Erişim belirleyicilerini kapsülleme ilkelerine uygun seçiniz).
+
+● Sanal Yıkıcı: Bellek sızıntılarını önlemek amacıyla uygun bir yıkıcı (destructor) tanımlayın.
+
+● Saf Sanal Fonksiyonlar:
+
+○ ozellikleriGoster(): Nesne bilgilerini ekrana yazdıracak.
+
+○ fiyatHesapla(): Mobilyanın son satış fiyatını döndürecek.
+
+2. Türetilmiş Sınıflar (Concrete Classes)
+
+Mobilya sınıfından kalıtım alan en az iki farklı sınıf tasarlayın:
+
+● Masa Sınıfı: Ek olarak uzunluk ve genislik bilgilerini tutmalıdır. fiyatHesapla() fonksiyonu,
+
+masanın yüzey alanına göre (Örn: alan * birim maliyet) taban fiyata ekleme yapmalıdır.
+
+● Sandalye Sınıfı: Ek olarak tekerlekliMi (bool) bilgisini tutmalıdır. Eğer sandalye tekerlekliyse,
+
+fiyatHesapla() fonksiyonu taban fiyata sabit bir "mekanizma ücreti" eklemelidir.
+
+3. Dinamik Çok Biçimlilik (Polymorphism)
+
+main fonksiyonu içerisinde:
+
+● Farklı türdeki mobilya nesnelerini (Masa, Sandalye vb.) dinamik bellek yönetimi (new)
+
+kullanarak oluşturun.
+
+● Bu nesnelerin adreslerini, temel sınıf tipinde bir dizide veya vektörde (Mobilya*) saklayın.
+
+● Bir döngü aracılığıyla, listenizdeki tüm mobilyaların özelliklerini ve hesaplanmış fiyatlarını
+
+ekrana yazdırın.
+
+● Program sonlanmadan önce kullanılan tüm bellek alanlarını (delete) serbest bırakın.
+*/
+
+
 //main.cpp kısmı
 /*
 #include <iostream>
